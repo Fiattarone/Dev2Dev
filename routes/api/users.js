@@ -11,6 +11,8 @@ const config = require("config");
 // @description Register User
 // @access      Public
 
+// Note: express-validator works in the same area that middleware goes. 
+
 router.post("/", [
     check("name", "Name is required").not().isEmpty(),
     check("email", "Email be valid email").isEmail(),
