@@ -1,4 +1,7 @@
 const express = require("express");
+const request = require("request");
+const config = require("config");
+
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 
@@ -314,5 +317,20 @@ router.delete("/education/:edu_id", auth, async (req, res) => {
         res.status(500).send("Server Error.");
     }
 });
+
+// @route       GET api/profile/github/:username
+// @description Get user repos from github
+// @access      Public
+
+router.get("/github/:username", (req, res) => {
+    try {
+        const options = {
+            uri: `https://api.github.com/users/${req.params.username}/repos`
+        }
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error.");
+    }
+})
 
 module.exports = router;

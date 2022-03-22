@@ -1,4 +1,6 @@
 {
     "mongoURI": "mongodb+srv://dtfiattarone:social123@cluster0.rmc5t.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "jsonSecret": "supersupasecret"
+    "jsonSecret": "supersupasecret",
+    "githubClientId": "5e57cb89f543a9908243",
+    "githubSecret": "ac4b943b3d48e3ceca1c2ac2906a1bd04e3b202d"
 }
