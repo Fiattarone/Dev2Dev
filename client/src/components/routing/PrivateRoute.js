@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Route, Navigate, useLocation } from 'react-router-dom';
+// import { connect } from 'react-redux';
+// import Spinner from '../layout/Spinner';
 // import { Redirect } from 'request/lib/redirect';
 
 // const PrivateRoute = ({ component: Component, auth: { isAuthenticated, loading }, ...rest }) => {
@@ -12,6 +14,18 @@ import { Route, Navigate, useLocation } from 'react-router-dom';
 //     )
 // }
 
+
+// const PrivateRoute = ({
+//     component: Component,
+//     auth: { isAuthenticated, loading }
+//   }) => {
+//     if (loading) return <Spinner />;
+//     if (isAuthenticated) return <Component />;
+
+//     return <Navigate to="/login" />;
+// };
+
+//sol#2
 export default function PrivateRoute({ children }) {
     let location = useLocation();
     const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -31,4 +45,5 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-// export default connect(mapStateToProps)(PrivateRoute)  
+//for sol#2 comment out
+// export default connect(mapStateToProps)(PrivateRoute)

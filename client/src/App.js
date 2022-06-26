@@ -15,15 +15,20 @@ import store from "./store";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
+// if (localStorage.token) {
+//   setAuthToken(localStorage.token);
+// }
 
 const App = () => {
-
   useEffect(() => {
-    store.dispatch(loadUser());
+    if (localStorage.token) {
+      setAuthToken(localStorage.token);
+      store.dispatch(loadUser());
+    }
   }, []);
+  // useEffect(() => {
+  //   store.dispatch(loadUser());
+  // }, []);
 
 return (
   <Provider store={store}>
@@ -37,12 +42,12 @@ return (
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<PrivateRoute> <Dashboard/> </PrivateRoute>} />
-          </Routes> 
+          </Routes>
         </section>
       </Fragment>
     </Router>
   </Provider>
 )};
-  
+
 
 export default App;
