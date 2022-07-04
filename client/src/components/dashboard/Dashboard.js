@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCurrentProfile } from '../../actions/profile';
-import { DashboardActions } from './DashboardActions';
+import DashboardActions from './DashboardActions';
+import Experience from './Experience';
 import Spinner from '../layout/Spinner';
+import Education from './Education';
 
 const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
-  return loading && profile === null ? <Spinner /> : <Fragment>
+  return loading && profile === null ? <Spinner /> : (<Fragment>
     <h1 className='large text-primary'>Dashboard</h1>
     <p className='lead'>
       <i className='fas fa-user'></i> Welcome { user && user.name }
@@ -19,6 +21,8 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
     {profile !== null ? (
       <Fragment>
         <DashboardActions />
+        <Experience experience={profile.experience}/>
+        <Education education={profile.education}/>
       </Fragment>
     ) : (
       <Fragment>
@@ -27,7 +31,7 @@ const Dashboard = ({ getCurrentProfile, auth: { user }, profile: { profile, load
       </Fragment>
     )}
 
-  </Fragment>;
+  </Fragment>)
 
 }
 
