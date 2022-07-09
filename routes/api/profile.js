@@ -4,6 +4,7 @@ const config = require("config");
 
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
+const checkObjectId = require('../../middleware/checkObjectId');
 
 const auth = require("../../middleware/auth");
 
@@ -50,9 +51,9 @@ router.get("/", async (req, res) => {
 // @description Get user profile by id
 // @access      Public
 
-router.get("/user/:user_id", async (req, res) => {
+router.get("/user/:user_id", checkObjectId('user_id'), async ({ params: { user_id } }, res) => {
     try {
-        const profiles = await Profile.findOne({ user: req.params.user_id }).populate("user",
+        const profiles = await Profile.findOne({ user: user_id }).populate("user",
         ["name", "avatar"]);
 
         if (!profiles) return res.status(400).json({ message: "Profile not found." });
