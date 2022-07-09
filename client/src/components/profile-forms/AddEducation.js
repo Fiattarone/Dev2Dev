@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { addEducation } from '../../actions/profile';
 
-const AddEducation = ({ addEducation, navigate }) => {
-
+const AddEducation = ({ addEducation }) => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         school: '',
         degree: '',
