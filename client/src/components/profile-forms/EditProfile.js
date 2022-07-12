@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 
-const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentProfile, history }) => {
+const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentProfile }) => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -13,11 +13,11 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
         location: '',
         status: '',
         skills: '',
-        githubusername: '',
+        ghusername: '',
         bio: '',
         twitter: '',
         facebook: '',
-        linkedin: '',
+        linkedIn: '',
         youtube: '',
         instagram: ''
     });
@@ -37,7 +37,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
             bio: loading || !profile.bio ? '' : profile.bio,
             twitter: loading || !profile.twitter ? '' : profile.twitter,
             facebook: loading || !profile.facebook ? '' : profile.facebook,
-            linkedin: loading || !profile.linkedin ? '' : profile.linkedin,
+            linkedIn: loading || !profile.linkedIn ? '' : profile.linkedIn,
             youtube: loading || !profile.youtube ? '' : profile.youtube,
             instagram: loading || !profile.instagram ? '' : profile.instagram
 
@@ -50,11 +50,11 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
         location,
         status,
         skills,
-        githubusername,
+        ghusername,
         bio,
         twitter,
         facebook,
-        linkedin,
+        linkedIn,
         youtube,
         instagram
     } = formData;
@@ -114,8 +114,8 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
         <input
           type="text"
           placeholder="Github Username"
-          name="githubusername"
-          value={githubusername}
+          name="ghusername"
+          value={ghusername}
           onChange={e => onChange(e)}
         />
         <small className="form-text"
@@ -153,7 +153,7 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
 
           <div className="form-group social-input">
             <i className="fab fa-linkedin fa-2x"></i>
-            <input type="text" placeholder="Linkedin URL" name="linkedin" value={linkedin} onChange={e => onChange(e)}/>
+            <input type="text" placeholder="Linkedin URL" name="linkedin" value={linkedIn} onChange={e => onChange(e)}/>
           </div>
 
           <div className="form-group social-input">

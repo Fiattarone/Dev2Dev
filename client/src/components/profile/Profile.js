@@ -8,6 +8,7 @@ import ProfileTop from './ProfileTop';
 import ProfileAbout from './ProfileAbout';
 import ProfileExperience from './ProfileExperience';
 import ProfileEducation from './ProfileEducation';
+import ProfileGithub from './ProfileGithub';
 
 const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
     const { id } = useParams();
@@ -46,6 +47,11 @@ const Profile = ({ getProfileById, profile: { profile, loading }, auth }) => {
                     ))}
                 </Fragment> ) : ( <h4>No education to list.</h4> ) }
             </div>
+            { profile.ghusername ? (
+                <ProfileGithub username={profile.ghusername} />
+            ) : (
+                console.log(JSON.stringify(profile))
+            )}
         </div>
         </Fragment>)}
     </Fragment>

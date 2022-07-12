@@ -13,11 +13,11 @@ const CreateProfile = ({ createProfile, history }) => {
         location: '',
         status: '',
         skills: '',
-        githubusername: '',
+        ghusername: '',
         bio: '',
         twitter: '',
         facebook: '',
-        linkedin: '',
+        linkedIn: '',
         youtube: '',
         instagram: ''
     });
@@ -30,11 +30,11 @@ const CreateProfile = ({ createProfile, history }) => {
         location,
         status,
         skills,
-        githubusername,
+        ghusername,
         bio,
         twitter,
         facebook,
-        linkedin,
+        linkedIn,
         youtube,
         instagram
     } = formData;
@@ -94,8 +94,8 @@ const CreateProfile = ({ createProfile, history }) => {
         <input
           type="text"
           placeholder="Github Username"
-          name="githubusername"
-          value={githubusername}
+          name="ghusername"
+          value={ghusername}
           onChange={e => onChange(e)}
         />
         <small className="form-text"
@@ -133,7 +133,7 @@ const CreateProfile = ({ createProfile, history }) => {
 
           <div className="form-group social-input">
             <i className="fab fa-linkedin fa-2x"></i>
-            <input type="text" placeholder="Linkedin URL" name="linkedin" value={linkedin} onChange={e => onChange(e)}/>
+            <input type="text" placeholder="Linkedin URL" name="linkedIn" value={linkedIn} onChange={e => onChange(e)}/>
           </div>
 
           <div className="form-group social-input">
